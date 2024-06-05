@@ -1,4 +1,8 @@
-/** @format */
+/**
+ * Custom styles for layout demo
+ *
+ * @format
+ */
 
 #components-layout-demo-custom-trigger .trigger {
  padding: 0 24px;
@@ -11,11 +15,68 @@
 #components-layout-demo-custom-trigger .trigger:hover {
  color: #1890ff;
 }
+
 #components-layout-demo-custom-trigger .logo {
  height: 32px;
  margin: 16px;
- background: rgb(255, 255, 255, 0.3);
+ background: rgba(255, 255, 255, 0.3);
 }
+
 .site-layout .site-layout-background {
  background: #fff;
+ box-shadow: 0 0 3px #ccc;
+ border-radius: 5px;
+}
+
+.ant-layout-has-sider {
+ padding: 15px !important;
+}
+
+.ant-layout-sider {
+ border-radius: 10px !important;
+}
+
+.ant-layout-sider-children {
+ padding: 15px !important;
+ padding-right: 20px !important;
+ height: 95vh !important;
+}
+
+.ant-layout-header {
+ margin: 0 10px !important;
+ display: flex !important;
+ align-items: center;
+}
+
+.anticon svg {
+ height: 20px !important;
+ width: 20px !important;
+ font-size: 25px !important;
+}
+
+/* Custom styles for ant-menu links */
+.ant-menu-dark .ant-menu-item a {
+ text-decoration: none;
+ color: inherit;
+}
+
+.ant-menu-dark .ant-menu-item a:hover {
+ text-decoration: none;
+ color: #fff; /* Adjust the hover color if needed */
+}
+
+.demo-logo-vertical h3 {
+ color: #08878d;
+ font-size: 22px;
+ font-weight: bold;
+ text-align: center;
+ padding-bottom: 100px !important;
+}
+
+.ant-menu-item-selected {
+ background-color: #047979 !important;
+ border-top-right-radius: 15px !important;
+ border-bottom-right-radius: 15px !important;
+ border-top-left-radius: 15px !important;
+ border-bottom-left-radius: 15px !important;
 }
