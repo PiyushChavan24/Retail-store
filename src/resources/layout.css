@@ -46,6 +46,8 @@
  margin: 0 10px !important;
  display: flex !important;
  align-items: center;
+ border-radius: 5px !important;
+ justify-content: space-between;
 }
 
 .anticon svg {
@@ -79,4 +81,7 @@
  border-bottom-right-radius: 15px !important;
  border-top-left-radius: 15px !important;
  border-bottom-left-radius: 15px !important;
+}
+.cart-coount {
+ cursor: pointer;
 }

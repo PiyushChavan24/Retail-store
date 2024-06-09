@@ -1,7 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import {
  MenuFoldOutlined,
  MenuUnfoldOutlined,
@@ -9,19 +8,26 @@ import {
  CopyOutlined,
  UserOutlined,
  LoginOutlined,
+ ShoppingCartOutlined,
  UnorderedListOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import "../resources/layout.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const { Header, Sider, Content } = Layout;
 
 const DefaultLayout = (props) => {
+ const navigate = useNavigate();
  const [collapsed, setCollapsed] = useState(false);
+ const { cartItems } = useSelector((state) => state.rootReducer);
  const {
   token: { colorBgContainer, borderRadiusLG },
  } = theme.useToken();
+ useEffect(() => {
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+ }, [cartItems]);
 
  return (
   <Layout>
@@ -32,7 +38,8 @@ const DefaultLayout = (props) => {
     <Menu
      theme="dark"
      mode="inline"
-     defaultSelectedKeys={window.location.pathname}>
+     defaultSelectedKeys={[window.location.pathname]} // Wrap it in square brackets
+    >
      {/* /**we added window.location.pathname to highlight the current page in the sidebar**/}
      <Menu.Item key="/home" icon={<HomeOutlined />}>
       <Link to="/home">Home</Link>
@@ -67,6 +74,14 @@ const DefaultLayout = (props) => {
        height: 64,
       }}
      />
+     <div
+      className="cart-count d-flex align-items-center"
+      onClick={() => navigate("/cart")}>
+      <b>
+       <p className="mt-3 mr-2">{cartItems.length}</p>
+      </b>
+      <ShoppingCartOutlined />
+     </div>
     </Header>
     <Content
      className="site-layout-background"
