@@ -21,16 +21,25 @@ const { Header, Sider, Content } = Layout;
 const DefaultLayout = (props) => {
  const navigate = useNavigate();
  const [collapsed, setCollapsed] = useState(false);
- const { cartItems } = useSelector((state) => state.rootReducer);
+ const { cartItems, loading } = useSelector((state) => state.rootReducer);
  const {
   token: { colorBgContainer, borderRadiusLG },
  } = theme.useToken();
+
  useEffect(() => {
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
  }, [cartItems]);
 
  return (
   <Layout>
+   {loading && (
+    <div className="spinner">
+     <div
+      className="spinner-border"
+      style={{ width: "3rem", height: "3rem" }}
+      role="status"></div>
+    </div>
+   )}
    <Sider trigger={null} collapsible collapsed={collapsed}>
     <div className="demo-logo-vertical">
      <h3>Shop Pos</h3>
@@ -38,9 +47,8 @@ const DefaultLayout = (props) => {
     <Menu
      theme="dark"
      mode="inline"
-     defaultSelectedKeys={[window.location.pathname]} // Wrap it in square brackets
-    >
-     {/* /**we added window.location.pathname to highlight the current page in the sidebar**/}
+     defaultSelectedKeys={[window.location.pathname]}>
+     {/* We added window.location.pathname to highlight the current page in the sidebar */}
      <Menu.Item key="/home" icon={<HomeOutlined />}>
       <Link to="/home">Home</Link>
      </Menu.Item>
@@ -54,7 +62,7 @@ const DefaultLayout = (props) => {
       <Link to="/customers">Customers</Link>
      </Menu.Item>
      <Menu.Item key="/logout" icon={<LoginOutlined />}>
-      Logout
+      <Link to="/logout">Logout</Link>
      </Menu.Item>
     </Menu>
    </Sider>

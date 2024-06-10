@@ -72,16 +72,23 @@
  font-size: 22px;
  font-weight: bold;
  text-align: center;
- padding-bottom: 100px !important;
+ padding-bottom: 100px !important; /* Adjust the padding as needed */
 }
 
 .ant-menu-item-selected {
  background-color: #047979 !important;
- border-top-right-radius: 15px !important;
- border-bottom-right-radius: 15px !important;
- border-top-left-radius: 15px !important;
- border-bottom-left-radius: 15px !important;
+ border-radius: 15px !important; /* Adjust border-radius if needed */
 }
-.cart-coount {
- cursor: pointer;
+
+.cart-count {
+ cursor: pointer; /* Corrected spelling of class name */
+}
+
+.spinner-border {
+ height: 3rem;
+ width: 3rem;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
 }

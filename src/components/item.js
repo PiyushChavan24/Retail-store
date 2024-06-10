@@ -8,7 +8,7 @@ function Item({ item }) {
  const dispatch = useDispatch();
 
  function addToCart() {
-  dispatch({ type: "addtoCart", payload: item }); // Ensure the action type matches exactly with the reducer case
+  dispatch({ type: "addtoCart", payload: { ...item, quantity: 1 } }); // Ensure the action type matches exactly with the reducer case
  }
 
  return (

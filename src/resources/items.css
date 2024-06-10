@@ -18,3 +18,17 @@
  background-color: rgb(30, 216, 30) !important;
  color: white !important;
 }
+Input {
+ border: 1px solid rgb(3, 68, 54) !important;
+ box-shadow: none !important;
+ outline: none !important;
+}
+Input:focus {
+ box-shadow: none !important;
+ outline: none !important;
+}
+.ant-select-selector {
+ border: 1px solid rgb(3, 68, 54) !important;
+ box-shadow: none !important;
+ outline: none !important;
+}
