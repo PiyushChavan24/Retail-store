@@ -83,7 +83,13 @@
 .cart-count {
  cursor: pointer; /* Corrected spelling of class name */
 }
-
+.spinner {
+ z-index: 10;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+}
 .spinner-border {
  height: 3rem;
  width: 3rem;
