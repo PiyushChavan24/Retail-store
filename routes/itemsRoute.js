@@ -30,4 +30,12 @@ router.post("/edit-item", async (req, res) => {
  }
 });
 
+router.post("/delete-item", async (req, res) => {
+ try {
+  await ItemModel1.findOneAndDelete({ _id: req.body.itemId }, req.body);
+  res.send("Item updated successfully");
+ } catch (error) {
+  res.status(400).json(error);
+ }
+});
 module.exports = router;
